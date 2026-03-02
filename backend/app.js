@@ -5,21 +5,21 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var createError = require('http-errors');
 require('dotenv').config();
-require('./config/database'); // conexión a MongoDB
+require('./config/database'); 
 
-// Crear app
+
 var app = express();
 
-// Middleware
+
 var cors = require('cors');
 app.use(cors());
-app.use(express.json()); // para recibir JSON
+app.use(express.json()); 
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// View engine setup (opcional si usas plantillas)
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
